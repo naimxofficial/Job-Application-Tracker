@@ -159,7 +159,7 @@ function renderInterview() {
       <h3 class="company text-[#002C5C] font-semibold text-[18px]">${interview.company}</h3>
       <p class="skill text-[#64748B]">${interview.skill}</p>
       <p class="salary text-[#64748B] text-[14px]">${interview.salary}</p>
-      <span class="inline apply status py-2 px-3 text-[#002C5C] text-[14px] bg-[#EEF4FF] font-medium ">${interview.status}</span>
+      <div><span class="inline apply status py-2 px-3 text-[#002C5C] text-[14px] bg-[#EEF4FF] font-medium ">${interview.status}</span></div>
       <p class="description text-[#323B49] text-[14px]">${interview.description}</p>
       <!-- Interview and Reject button  -->
       <div class="space-x-2">
@@ -182,7 +182,7 @@ function renderRejected() {
       <h3 class="company text-[#002C5C] font-semibold text-[18px]">${reject.company}</h3>
       <p class="skill text-[#64748B]">${reject.skill}</p>
       <p class="salary text-[#64748B] text-[14px]">${reject.salary}</p>
-      <span class="inline apply status py-2 px-3 text-[#002C5C] text-[14px] bg-[#EEF4FF] font-medium ">${reject.status}</span>
+      <div><span class="inline apply status py-2 px-3 text-[#002C5C] text-[14px] bg-[#EEF4FF] font-medium ">${reject.status}</span></div>
       <p class="description text-[#323B49] text-[14px]">${reject.description}</p>
       <!-- Interview and Reject button  -->
       <div class="space-x-2">
