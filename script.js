@@ -72,6 +72,37 @@ function toggleStyle(id) {
 const mainContainer = document.querySelector("main");
 
 mainContainer.addEventListener("click", function (event) {
+// ─── DELETE ───────────────────────────────────────────────────
+    if (event.target.closest(".deleteBtn")) {
+        const btn = event.target.closest(".deleteBtn");
+        const card = btn.closest("section.p-6, div.p-6");  
+        if (!card) return;
+
+        const company = card.querySelector(".company")?.innerText?.trim();
+        if (!company) return;
+
+        // 1. Remove the card from DOM 
+        card.remove();
+
+        // 2. Clean up data arrays
+        interviewList = interviewList.filter(item => item.company !== company);
+        rejectedList = rejectedList.filter(item => item.company !== company);
+
+        // 3. Refresh counters
+        calculateCount();
+        updateJobCountDisplay();
+
+        // 4. If currently viewing filtered list -> re-render it
+        if (currentStatus === "interview-filter-btn") {
+            renderInterview();
+        } else if (currentStatus === "rejected-filter-btn") {
+            renderRejected();
+        }
+
+        return;
+    }
+
+
     if (event.target.classList.contains("interview-btn")) {
         const parentNode = event.target.parentNode.parentNode;
         const company = parentNode.querySelector(".company").innerText;
@@ -144,6 +175,7 @@ mainContainer.addEventListener("click", function (event) {
         }
         updateJobCountDisplay();
     }
+
 });
 
 const filterSeciton = document.getElementById("filtered-section");
